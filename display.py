@@ -37,7 +37,7 @@ df1.columns = ['Year',
 @app.route('/', methods=("POST", "GET"))
 def html_table():
 
-    return render_template('simple.html',  tables=[df.to_html(classes='data')], titles=df.columns.values)
+    return render_template('simple.html',  tables=[df1.to_html(classes='data')], titles=df.columns.values)
 
 
 
