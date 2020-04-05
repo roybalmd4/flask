@@ -34,12 +34,18 @@ df1.columns = ['Year',
             'Actual Vap',
             'Dewpoint Daily']
 
+df2 = df[df['1','3']]
+
 @app.route('/', methods=("POST", "GET"))
 def home():
 
-    return render_template('home.html', name="AZMET", data=df1.to_html())
+    return render_template('home.html', name="AZMET Data", data=df1.to_html())
     # return df1.to_html(header="true")
 
+@app.route('/graph', methods=("POST", "GET"))
+def graph():
+
+    return render_template('graph.html', name="AZMET Graph", data=df2.to_html())
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
