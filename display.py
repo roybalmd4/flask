@@ -35,10 +35,10 @@ df1.columns = ['Year',
             'Dewpoint Daily']
 
 @app.route('/', methods=("POST", "GET"))
-def html_table():
+def home():
 
-    # return render_template('simple.html',  tables=[df1.to_html(classes='data')], titles=df1.columns.values, index=False)
-    return df.to_html(header="true", table_id=table)
+    return render_template('home.html', name="AZMET", data=df1.to_html())
+    # return df1.to_html(header="true")
 
 
 if __name__ == '__main__':
