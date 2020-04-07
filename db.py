@@ -3,7 +3,7 @@ import psycopg2
 
 def localDB():
 
-    engine = create_engine('postgresql://postgres:1q@W3e$R5t^Y@localhost:5432/test')
+    engine = create_engine('postgresql://postgres:*********@localhost:5432/test')
 
     return engine
 
