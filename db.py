@@ -9,7 +9,7 @@ def localDB():
 
 def awsDB():
 
-    engine = create_engine('postgresql://postgres:5t^Y7u*I9o)P@htp.ctbdjodkkbuz.us-west-1.rds.amazonaws.com:5432/htp')
+    engine = create_engine('postgresql://postgres:*********@htp.ctbdjodkkbuz.us-west-1.rds.amazonaws.com:5432/htp')
 
     return engine
 
