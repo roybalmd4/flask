@@ -5,7 +5,10 @@ import db
 
 app = Flask(__name__)
 
-df1 = pd.read_csv("https://cals.arizona.edu/AZMET/data/0620rd.txt", header=False)
+# Read the AZMET daily data directly from the AZMET website.  
+df1 = pd.read_csv("https://cals.arizona.edu/AZMET/data/0620rd.txt", header=None)
+
+# Set the column headers since the text file only contains the data.
 df1.columns = ['Year', 
             'DOY',
             'Station Num',
@@ -35,23 +38,32 @@ df1.columns = ['Year',
             'Actual Vap',
             'Dewpoint Daily']
 
+# Creating df2 and filtering down to two columns from df1.  These two columns will
+# be displayed.
 df2 = df1.filter(items=['DOY','Air Max'])
 
+
+# This is for testing purposes. Comment out when ready for production.
 theTime = datetime.datetime.now()
 print(f'Starting database insert {theTime}')
-#  ** This function connects to the local database and does an insert
-# df1.to_sql('azmet', conn = db.postDB(), if_exists='append')
+
+#  Insert the data from AZMET into the database. Calling postDB to get the connection 
+#  object to the database.
+df1.to_sql('azmet', conn = db.postDB(), if_exists='append')
 
 # ** This function connects to an AWS instance and does an insert.
-df1.to_sql('azmet', conn = db.awsDB(), if_exists='append')
-print(f'Done with database insert {theTime}')
-conn.close()
+# df1.to_sql('azmet', conn = db.awsDB(), if_exists='append')
 
+# Show the time that the db insert completed
+print(f'Done with database insert {theTime}')
+
+# Home directory for the application. Uses home.html.
 @app.route('/', methods=("POST", "GET"))
 def home():
 
     return render_template('home.html', name="AZMET Data", data=df2.to_html())
 
+# /graph to get to this page.  Uses graph.html.
 @app.route('/graph', methods=("POST", "GET"))
 def graph():
 
