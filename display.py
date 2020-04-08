@@ -49,7 +49,7 @@ print(f'Starting database insert {theTime}')
 
 #  Insert the data from AZMET into the database. Calling postDB to get the connection 
 #  object to the database.
-df1.to_sql('azmet', db.localDB(), if_exists='append')
+# df1.to_sql('azmet', db.localDB(), if_exists='append')
 
 # ** This function connects to an AWS instance and does an insert.
 # df1.to_sql('azmet', db.awsDB(), if_exists='append')
@@ -71,4 +71,4 @@ def graph():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', debug=True)
