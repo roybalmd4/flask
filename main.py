@@ -10,6 +10,8 @@ from flask import Flask
 
 app = Flask(__name__)
 
+# Making a comment for DB class
+
 '''
     Making changes to main.py / Mike
 
