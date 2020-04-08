@@ -5,7 +5,7 @@ import psycopg2
 # awsDB() when moving to production.
 def localDB():
 
-    engine = create_engine('postgresql://postgres:*********@localhost:5432/test')
+    engine = create_engine('postgresql://postgres:*******@localhost:5432/test')
 
     return engine
 
