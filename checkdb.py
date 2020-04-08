@@ -3,6 +3,8 @@ import psycopg2
 from sqlalchemy import create_engine
 import datetime
 
+# Made comments
+
 def make_connection():
     '''
         Establish the connection to the database and provide
