@@ -1,7 +1,8 @@
 from flask import Flask, request, render_template, session, redirect
 import pandas as pd
 import datetime
-import db
+import db     # Database connection local or remote
+import graphs # Plotly graph function
 
 app = Flask(__name__)
 
@@ -64,11 +65,26 @@ def home():
     return render_template('home.html', name="AZMET Data", data=df2.to_html())
 
 # /graph to get to this page.  Uses graph.html.
-@app.route('/graph', methods=("POST", "GET"))
-def graph():
+# @app.route('/graph', methods=("POST", "GET"))
+# def graph():
 
-    return render_template('graph.html', name="AZMET Graph", data=df2.to_html())
+#     bar = graphs.create_plot(df2)
+#     return render_template('graph.html', name="AZMET Graph", plot=bar)
 
+# /graph to get to this page.  Uses graph.html.
+@app.route('/scatter', methods=("POST", "GET"))
+def scatter():
+
+    # Function requires a dataframe and type of graph
+    scatter = graphs.create_plot(df2, "Scatter")
+    return render_template('scatter.html', name="AZMET Graph", plot=scatter)
+
+@app.route('/bar', methods=("POST", "GET"))
+def bar():
+
+    # Function requires a dataframe and type of graph
+    bar = graphs.create_plot(df2, "Bar")
+    return render_template('bar.html', name="AZMET Graph", plot=bar)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

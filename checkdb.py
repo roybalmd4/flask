@@ -48,4 +48,4 @@ def make_connection():
                     'Actual Vap',
                     'Dewpoint Daily']
 
-    startTime = 
+    
