@@ -75,14 +75,15 @@ def home():
 @app.route('/scatter', methods=("POST", "GET"))
 def scatter():
 
-    scatter = graphs.create_plot_scatter(df2)
+    # Function requires a dataframe and type of graph
+    scatter = graphs.create_plot(df2, "Scatter")
     return render_template('scatter.html', name="AZMET Graph", plot=scatter)
 
-    # /graph to get to this page.  Uses graph.html.
 @app.route('/bar', methods=("POST", "GET"))
 def bar():
 
-    bar = graphs.create_plot_bar(df2)
+    # Function requires a dataframe and type of graph
+    bar = graphs.create_plot(df2, "Bar")
     return render_template('bar.html', name="AZMET Graph", plot=bar)
 
 if __name__ == '__main__':

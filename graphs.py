@@ -3,28 +3,23 @@ import plotly
 import plotly.graph_objs as go
 import json
 
-def create_plot_scatter(df):
+# Passing the dataframe and also the graph type.
+def create_plot(df, graph_type):
 
-    data = [
-        go.Scatter(
-            x=df['DOY'], # assign x as the dataframe column 'DOY'
-            y=df['Air Max']
-        )
-    ]
+    # Thinned two functions down to one.
 
-    graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
-
-    return graphJSON
-
-def create_plot_bar(df):
-    
-    data = [
-        go.Bar(
-            x=df['DOY'], # assign x as the dataframe column 'DOY'
-            y=df['Air Max']
-        )
-    ]
+    if graph_type == "Scatter":
+        data = [
+            go.Scatter(x=df['DOY'], # assign x as the dataframe column 'DOY'
+                       y=df['Air Max'])
+        ]
+    else:
+        data = [
+            go.Bar(x=df['DOY'], # assign x as the dataframe column 'DOY'
+                   y=df['Air Max'])
+        ]
 
     graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
 
     return graphJSON
+
