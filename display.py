@@ -66,7 +66,7 @@ def home():
 
 # /graph to get to this page.  Uses graph.html.
 # @app.route('/graph', methods=("POST", "GET"))
-# def graph():
+# def graph():   
 
 #     bar = graphs.create_plot(df2)
 #     return render_template('graph.html', name="AZMET Graph", plot=bar)
