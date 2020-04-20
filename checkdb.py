@@ -12,11 +12,11 @@ def make_connection():
 
         INPUTS : None
         OUTPUTS: Connection object (RETURN conn)
-        AWS Instance: 5t^Y7u*I9o)P
+        AWS Instance: 
 
     '''
 
-    engine = create_engine('postgresql://postgres:1q@W3e$R5t^Y@htp.ctbdjodkkbuz.us-west-1.rds.amazonaws.com:5432/azmet')
+    engine = create_engine('postgresql://postgres:*********@htp.ctbdjodkkbuz.us-west-1.rds.amazonaws.com:5432/azmet')
 
     df1 = pd.read_csv("https://cals.arizona.edu/AZMET/data/0620rd.txt")
     df1.columns = [ 'Year', 
