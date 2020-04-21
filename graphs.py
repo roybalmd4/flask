@@ -3,6 +3,8 @@ import plotly
 import plotly.graph_objs as go
 import json
 
+#  There are comments made on 4/21/2020
+
 # Passing the dataframe and also the graph type.
 def create_plot(df, graph_type):
 
