@@ -5,7 +5,7 @@ import psycopg2
 # awsDB() when moving to production.
 def localDB():
 
-    engine = create_engine('postgresql://postgres:*******@localhost:5432/test')
+    engine = create_engine('postgresql://postgres:*********@localhost:5432/test')
 
     return engine
 
@@ -14,7 +14,7 @@ def localDB():
 def awsDB():
 
     # Connect to the database and return a connection object into engine
-    engine = create_engine('postgresql://postgres:*********@htp.ctbdjodkkbuz.us-west-1.rds.amazonaws.com:5432/htp')
+    engine = create_engine('postgresql://postgres:*********@weather.ctbdjodkkbuz.us-west-1.rds.amazonaws.com:5432/azmet')
 
     # Return the connection object to the caller.
     return engine
