@@ -17,7 +17,7 @@ def make_connection():
 
     '''
 
-    # The engine is unused
+    # The engine is unused and should be considered for removal
     # engine = create_engine('postgresql://postgres:*********@htp.ctbdjodkkbuz.us-west-1.rds.amazonaws.com:5432/azmet')
 
     df1 = pd.read_csv("https://cals.arizona.edu/AZMET/data/0620rd.txt")
