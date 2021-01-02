@@ -2,6 +2,7 @@ import pandas as pd
 
 def main():
     df1 = pd.read_csv("https://cals.arizona.edu/AZMET/data/0620rd.txt")
+    # Define the column names
     df1.columns = ['Year', 
                 'DOY',
                 'Station Num',
